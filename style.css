@@ -6,3 +6,11 @@
 .disabledButton {
     background-color: #d8d8d8;
 }
+.productImage img {
+    max-width: 200px;
+    max-height: 200px;
+}
+.socksImage {
+    max-width: 200px;
+    max-height: 200px;
+}
