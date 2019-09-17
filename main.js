@@ -1,11 +1,12 @@
 var app = new Vue({
     el: '#app',
     data: {
+        brand: 'Vue Mastery',
         product: 'Socks',
         description: 'A pair of warm, fuzzy socks',
-        image: 'mvaasfue1uwpcrty6nes.webp',
+        selectedVariant: 0,
         link: 'https://www.nike.com/t/everyday-plus-cushion-training-crew-socks-3-pairs-kt8drs',
-        inventory: 8,
+        inventory: 0,
         details: ["80% cotton", "20% polyester", "Gender-neutral"],
         variants: [
             {
@@ -25,8 +26,16 @@ var app = new Vue({
         addToCart() {
             this.cart += 1
         },
-    updateProduct(variantImage) {
-        this.image = variantImage
+    updateProduct(index) {
+        this.selectedVariant = index
     }
+    },
+    computed: {
+        title() {
+            return this.brand + " " + this.product
+        },
+        image () {
+            return this.variants[this.selectedVariant].variantImage
+        }
     }
 })
